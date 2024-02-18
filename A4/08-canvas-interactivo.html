@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script src = "keycodes.js"></script>
+    <script>
+    window.onload = function () {
+      //Our code here...
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        context.font = '20pt Calibri';
+        context.fillStyle = 'purple';
+        context.fillText('Aprendamos los puntos cardinales',350,100);
+        context.fillText('CON MEMES DE NEW JEANS',350,150);
+        var foto = new Image();
+        foto.src = "NewJeans.jpg";
+        var imagen = new Image();
+        imagen.src = "Haerin.jpg";
+        var imagen1 = new Image();
+        imagen1.src = "Hanni.jpg";
+        var imagen2 = new Image();
+        imagen2.src = "Danielle.jpg";
+        var imagen3 = new Image();
+        imagen3.src = "Hyein.jpg";
+        var imagen4 = new Image();
+        imagen4.src = "Minji.jpg";
+        imagen.onload = function() {
+            context.drawImage(foto,350,200,300,300);
+        };
+        context.fillStyle="pink";
+        var x = 50;
+        var y = 50;
+        context.fillRect(x,y,100,100);
+
+        function onKeyboardEvent (event) {
+            switch (event.keyCode) {
+                case keycode.UP:
+                    context.clearRect(0,0,innerWidth,innerHeight);
+                    y-=5;
+                    context.fillRect(x,y,100,100);
+                    context.fillText('Norte',350,100);
+                    context.drawImage(imagen,350,250,200,200);
+                    break;
+                    case keycode.DOWN:
+                        context.clearRect(0,0,innerWidth,innerHeight);
+                        y+=5;
+                        context.fillRect(x,y,100,100);
+                        context.fillText('Sur',350,100);
+                        context.drawImage(imagen1,350,250,200,200);
+                        break;
+                        case keycode.LEFT:
+                        context.clearRect(0,0,innerWidth,innerHeight);
+                        x-=5;
+                        context.fillRect(x,y,100,100);
+                        context.fillText('Oeste',350,100);
+                        context.drawImage(imagen2,350,250,200,200);
+          break;
+        case keycode.RIGHT:
+        context.clearRect(0,0,innerWidth,innerHeight);
+                        x+=5;
+                        context.fillRect(x,y,100,100);
+                        context.fillText('Este',350,100);
+                        context.drawImage(imagen3,350,250,200,200);
+          break;
+          case keycode.SPACE:
+          context.clearRect(0,0,innerWidth,innerHeight);
+                        x=50;
+                        y=50;
+                        context.fillRect(x,y,100,100);
+                        context.fillText('Uhm... ese es espacio',350,100);
+                        context.drawImage(imagen4,350,250,200,200);
+          default:
+          console.log(event.keyCode);
+            };
+        }
+        window.addEventListener('keydown', onKeyboardEvent, false);
+    };
+    </script>
+  </body>
+</html>
