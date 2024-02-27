@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rotate to Mouse</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <aside>Move mouse on canvas element.</aside>
+    
+    <script src="utils.js"></script>
+    <script src="arrow.js"></script>
+    <script>
+
+window.onload = function () {
+  var canvas = document.getElementById('canvas'),
+      context = canvas.getContext('2d'),
+      mouse = utils.captureMouse(canvas),
+      arrow = new Arrow();
+    
+  arrow.x = canvas.width / 2;
+  arrow.y = canvas.height / 2;
+  
+  var prevMouseAngle = Math.atan2(mouse.y - arrow.y, mouse.x - arrow.x);
+
+  (function drawFrame () {
+    window.requestAnimationFrame(drawFrame);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+      
+    var dx = mouse.x - arrow.x,
+        dy = mouse.y - arrow.y;
+    
+    var mouseAngle = Math.atan2(dy, dx);
+    var deltaAngle = mouseAngle - prevMouseAngle;
+
+    arrow.rotation = mouseAngle;
+
+    arrow.draw(context);
+
+    prevMouseAngle = mouseAngle;
+  }());
+};
+    </script>
+  </body>
+</html>
