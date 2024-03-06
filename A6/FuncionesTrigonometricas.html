@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset = "utf-8">
+      <title></title>
+      <link rel = "stylesheet" href = "style.css">
+    </head>
+
+    <body>
+        <canvas id = "canvas" width = "400" height = "400"></canvas>
+        <script>
+            window.onload = function() {
+                console.log("Seno: ");
+                console.log(Math.sin(-30 * Math.PI / 180));
+                console.log("Coseno: ");
+                console.log(Math.cos(-30 * Math.PI / 180));
+                console.log("Tangente: ");
+                console.log(Math.tan(-30 * Math.PI / 180));
+
+                console.log("Arco seno: ");
+                console.log(Math.asin(0.5) * 180 / Math.PI);
+                console.log("Arco coseno: ");
+                console.log(Math.acos(0.865) * 180 / Math.PI);
+                console.log("Arco tangente: ");
+                console.log(Math.atan(0.577) * 180 / Math.PI);
+                console.log("Arco tangente 2: ");
+                console.log(Math.atan2(1,2) * 180 / Math.PI);
+                console.log(Math.atan2(-1,-2) * 180 / Math.PI);
+
+                console.log("Onda sinoidal");
+                for (var angle = 0; angle < Math.PI * 2; angle += 0.1) 
+                {
+                    console.log(Math.sin(angle));
+                }
+            };
+        </script>
+    </body>
+</html>

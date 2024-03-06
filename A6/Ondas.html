@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Onda sinodial</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+        background-color: #fc7ddc;
+        color: #ffb8ec;
+        text-align: center;
+        padding-top: 60px;
+        }
+
+        #canvas {
+        background-color: #ffb9f8;
+}
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="600"></canvas>
+    
+    <script src="utils.js"></script>
+    <script src="ball.js"></script>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d'),
+                momo = new Image(),
+                angle = 0,
+                centerScale = 0.5,
+                range = 0.5,
+                escalaX = 1,
+                escalaY = 1,
+                speed = 0.04,
+                posicionX = 0,
+                posicionY = 0,
+                centerY = 4,
+                rangeY = 1,
+                speedX = 1;
+
+            momo.onload = function() {
+                drawFrame();
+            };
+
+            momo.src = "Momo.png";
+
+            function drawFrame() {
+                requestAnimationFrame(drawFrame);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.save();
+                context.translate(0,200);
+                escalaX = escalaY = centerScale + Math.sin(angle) * range;
+                posicionX += speedX;
+                posicionY = centerY + Math.sin(angle) * rangeY;
+                angle += speed;
+                context.drawImage(momo, posicionX, posicionY, momo.width * escalaX, momo.height * escalaY);
+                context.restore(); 
+            }
+        };
+    </script>
+</body>
+</html>
