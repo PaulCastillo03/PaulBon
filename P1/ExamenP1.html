@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Examen Steven Universe</title>
+    <style>
+        body {
+            background-image: url("https://c4.wallpaperflare.com/wallpaper/555/1015/677/cartoon-steven-universe-wallpaper-preview.jpg");
+            background-size: cover;
+            background-color: #fc7ddc;
+            color: #ffb8ec;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        #canvas {
+            background-image: url("https://i.pinimg.com/736x/d5/ba/df/d5badf72ab7990a901a722fd5cb70464.jpg");
+            background-size: cover;
+            background-color: #ffb9f8;
+        }
+         
+        @font-face {
+                        font-family:letrabonita;
+                        src: url(CrystalUniverse-Regular.ttf);
+                    }
+
+                h1{
+                    font-family:letrabonita;
+                    font-weight: 500;
+                    font-size: 24px;
+                    color: rgb(255, 255, 127);
+                }
+    </style>
+</head>
+<body>
+    <audio controls autoplay loop>
+        <source src="Steven Musica.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h1>STEVEN UNIVERSE</h1>
+    <br>
+    <canvas id="canvas" width="1000" height="600"></canvas>
+    
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d'),
+                steven = new Image(),
+                posicionX = 0,
+                speedX = 2,
+                canvasWidth = canvas.width,
+                centerY = 298,
+                amplitudeY = 60, 
+                frequencyY = 0.025; 
+
+            steven.onload = function() {
+                drawFrame();
+            };
+
+            steven.src = "Steven.png";
+
+            function drawFrame() {
+                requestAnimationFrame(drawFrame);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                posicionX += speedX;
+                
+                // Comprobamos si la imagen toca el borde derecho o izquierdo
+                if (posicionX + (steven.width / 2) >= canvasWidth) {
+                    posicionX = canvasWidth - (steven.width / 2); 
+                    speedX = -speedX;
+                } else if (posicionX <= 0) {
+                    posicionX = 0; 
+                    speedX = -speedX;
+                }
+
+                // Movimiento sinusoidal en el eje Y
+                var posicionY = centerY + Math.sin(posicionX * frequencyY) * amplitudeY;
+
+                context.drawImage(steven, posicionX, posicionY, steven.width / 2, steven.height / 2);
+            }
+        };
+    </script>
+</body>
+</html>
