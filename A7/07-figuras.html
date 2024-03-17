@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            text-align: center;
+            background-color: rgb(193, 253, 253);
+        }
+
+        @font-face {
+                        font-family:letrabonita;
+                        src: url(OliveVillage-Regular.ttf);
+                    }
+
+                h1{
+                    font-family:letrabonita;
+                    font-weight: 500;
+                    font-size: 48px;
+                    color: rgb(255, 124, 196);
+                }
+    </style>
+  </head>
+  <body>
+    <h1>Figuras en canvas</h1>
+    <canvas id="canvas" width="1200" height="900"></canvas>
+    <script>
+    window.onload = function () {
+      //Our code here...
+      var canvas = document.getElementById('canvas'),
+      context = canvas.getContext('2d');
+
+      //casa
+      context.save();
+      context.fillStyle = "brown";
+      context.strokeStyle = "black";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.fillRect(300,100,100,100);
+      context.strokeRect(300,100,100,100);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+      
+      context.save();
+      context.fillStyle = "yellow";
+      context.strokeStyle = "black";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.fillRect(100,200,300,200);
+      context.strokeRect(100,200,300,200);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "red";
+      context.strokeStyle = "black";
+      context.lineWidth = "3";
+      context.beginPath();
+      context.moveTo(100,200);
+      context.lineTo(400,200);
+      context.lineTo(250,50);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "skyblue";
+      context.strokeStyle = "blue";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.fillRect(150,250,50,50);
+      context.strokeRect(150,250,50,50);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "brown";
+      context.strokeStyle = "black";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.fillRect(250,300,100,100);
+      context.strokeRect(250,300,100,100);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      //honguito
+      context.save();
+      context.fillStyle = "beige";
+      context.strokeStyle = "black";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(650,350);
+      context.lineTo(650,200);
+      context.lineTo(550,200);
+      context.lineTo(550,350);
+      context.quadraticCurveTo(600,390,650,350);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "lightgreen";
+      context.strokeStyle = "green";
+      context.lineWidth = "2";
+      context.beginPath();
+      context.moveTo(500,200);
+      context.lineTo(700,200);
+      context.quadraticCurveTo(600,0,500,200);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "white";
+      context.strokeStyle = "white";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.arc(570,150,20,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "white";
+      context.strokeStyle = "white";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.arc(650,170,20,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "white";
+      context.strokeStyle = "white";
+      context.lineWidth = "3";
+      context.beginPath();
+      context.arc(620,125,10,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      //estrella
+      context.save();
+      context.fillStyle = "yellow";
+      context.strokeStyle = "yellow";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(800,150);
+      context.lineTo(900,150);
+      context.lineTo(950,50);
+      context.lineTo(1000,150);
+      context.lineTo(1100,150);
+      context.lineTo(1050,250);
+      context.lineTo(1080,350);
+      context.lineTo(950,300);
+      context.lineTo(820,350);
+      context.lineTo(850,250);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      //luna
+      context.save();
+      context.fillStyle = "skyblue";
+      context.strokeStyle = "blue";
+      context.lineWidth = "4";
+      context.beginPath();
+      context.arc(400,650,150,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "white";
+      context.strokeStyle = "white";
+      context.lineWidth = "4";
+      context.beginPath();
+      context.arc(500,640,150,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      //gato
+
+      context.save();
+      context.fillStyle = "gray";
+      context.strokeStyle = "black";
+      context.lineWidth = "7";
+      context.beginPath();
+      context.moveTo(800,550);
+      context.lineTo(940,600);
+      context.lineTo(950,425);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "gray";
+      context.strokeStyle = "black";
+      context.lineWidth = "7";
+      context.beginPath();
+      context.moveTo(800,550);
+      context.lineTo(660,600);
+      context.lineTo(650,425);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "gray";
+      context.strokeStyle = "black";
+      context.lineWidth = "7";
+      context.beginPath();
+      context.arc(800,650,150,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "white";
+      context.strokeStyle = "black";
+      context.lineWidth = "4";
+      context.beginPath();
+      context.arc(860,600,35,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "white";
+      context.strokeStyle = "black";
+      context.lineWidth = "4";
+      context.beginPath();
+      context.arc(740,600,35,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "black";
+      context.strokeStyle = "black";
+      context.lineWidth = "4";
+      context.beginPath();
+      context.arc(855,595,28,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "black";
+      context.strokeStyle = "black";
+      context.lineWidth = "4";
+      context.beginPath();
+      context.arc(745,595,28,0,2*Math.PI);
+      context.stroke();
+      context.fill();
+      context.closePath();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "black";
+      context.strokeStyle = "black";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(800,675);
+      context.lineTo(1000,600);
+      context.moveTo(800,675);
+      context.lineTo(1000,650);
+      context.moveTo(800,675);
+      context.lineTo(1000,700);
+      context.moveTo(800,675);
+      context.lineTo(600,600);
+      context.moveTo(800,675);
+      context.lineTo(600,650);
+      context.moveTo(800,675);
+      context.lineTo(600,700);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "pink";
+      context.strokeStyle = "pink";
+      context.lineWidth = "10";
+      context.beginPath();
+      context.moveTo(775,650);
+      context.lineTo(825,650);
+      context.lineTo(800,680);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+      
+    };
+    </script>
+  </body>
+</html>
