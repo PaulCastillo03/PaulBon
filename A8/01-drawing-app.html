@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body{
+        text-align: center;
+        background-color: rgb(170, 252, 225);
+      }
+      .container{
+        margin: 0px auto;
+        text-align: center;
+        width: 1000px;
+      }
+      button{
+        width: 95px;
+        height: 45px;
+        margin: 5px;
+      }
+      button:hover{
+        opacity: 0.5;
+      }
+      #red{
+        background-color: #FF4343;
+        font: 22px impact;
+        color: white;
+      }
+      #orange{
+        background-color: #FFA136;
+        font: 22px impact;
+        color: white;
+      }
+      #yellow{
+        background-color: #FFFF26;
+        font: 22px impact;
+        color: black;
+      }
+      #green{
+        background-color: #1FF463;
+        font: 22px impact;
+        color: white;
+      }
+      #blue{
+        background-color: #357BFF;
+        font: 22px impact;
+        color: white;
+      }
+      #purple{
+        background-color: #B223FF;
+        font: 22px impact;
+        color: white;
+      }
+      #pink{
+        background-color: #F942FF;
+        font: 22px impact;
+        color: white;
+      }
+      #borrar{
+        width: 525px;
+        background-color: black;
+        font: 16px impact;
+        color: white;
+      }
+      #grosor1{
+        width: 150px;
+        background-color: #00D5A1;
+        font: 16px impact;
+        color: black;
+      }
+      #grosor5{
+        width: 150px;
+        background-color: #00D5A1;
+        font: 16px impact;
+        color: black;
+      }
+      #grosor10{
+        width: 150px;
+        background-color: #00D5A1;
+        font: 16px impact;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="colores">
+        <button id="red" type="button" value="#FF4343">Red</button>
+        <button id="orange" type="button" value="#FFA136">Orange</button>
+        <button id="yellow" type="button" value="#FFFF26">Yellow</button>
+        <button id="green" type="button" value="#1FF463">Green</button>
+        <button id="blue" type="button" value="#357BFF">Blue</button>
+        <button id="purple" type="button" value="#B223FF">Purple</button>
+        <button id="pink" type="button" value="F942FF">Pink</button>
+      </div>
+      <div id="otros">
+        <button id="borrar" type="button">Borrar</button>
+      </div>
+      <div id="grosor">
+        <button id="grosor1" type="button">1</button>
+        <button id="grosor5" type="button">5</button>
+        <button id="grosor10" type="button">10</button>
+      </div>
+      <canvas id="canvas" width="1000" height="700"></canvas>
+      <aside>Click and draw with the mouse.</aside>
+    
+      <script src="utils.js"></script>
+      <script>
+        window.onload = function () {
+          var canvas = document.getElementById('canvas'),
+              context = canvas.getContext('2d'),
+              mouse = utils.captureMouse(canvas);
+          var grosorSeleccionado = 1;
+
+          canvas.addEventListener('mousedown', function () {
+            context.beginPath();
+            context.moveTo(mouse.x, mouse.y);
+            context.lineWidth = grosorSeleccionado; // Se establece el grosor seleccionado
+            canvas.addEventListener('mousemove', onMouseMove, false);
+          }, false);
+
+          canvas.addEventListener('mouseup', function () {
+            canvas.removeEventListener('mousemove', onMouseMove, false);
+          }, false);
+
+          function onMouseMove () {
+            context.lineTo(mouse.x, mouse.y);
+            context.stroke();
+          }
+
+          var colores = document.getElementsByClassName('colores')[0];
+          colores.addEventListener('click', function(event){
+            context.strokeStyle = event.target.value;
+          });
+
+          var clearButton = document.getElementById('borrar');
+          clearButton.addEventListener('click', function(){
+            context.clearRect(0, 0, canvas.width, canvas.height);
+          });
+
+          // Seleccionar el grosor
+          var grosorButtons = document.getElementById('grosor').getElementsByTagName('button');
+          for (var i = 0; i < grosorButtons.length; i++) {
+            grosorButtons[i].addEventListener('click', function () {
+              grosorSeleccionado = parseInt(this.textContent);
+            });
+          }
+        };
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            text-align: center;
+            background-color: rgb(193, 253, 253);
+        }
+        @font-face {
+                        font-family:letrabonita;
+                        src: url(OliveVillage-Regular.ttf);
+                    }
+
+                h1{
+                    font-family:letrabonita;
+                    font-weight: 500;
+                    font-size: 48px;
+                    color: rgb(0, 224, 253);
+                }
+                h2{
+                    font-family:letrabonita;
+                    font-weight: 500;
+                    font-size: 30px;
+                    color: black;
+                }
+    </style>
+  </head>
+  <body>
+    <h1>Figura Tangram</h1>
+    <h2>Canguro</h2>
+    <canvas id="canvas" width="1150" height="950"></canvas>
+    <script>
+    window.onload = function () {
+      //Our code here...
+      var canvas = document.getElementById('canvas'),
+      context = canvas.getContext('2d');
+
+      context.save();
+      context.fillStyle = "#cb018d";
+      context.strokeStyle = "#cb018d";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(400,50);
+      context.lineTo(250,200);
+      context.lineTo(400,200);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "#fb3067";
+      context.strokeStyle = "#fb3067";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(400,200);
+      context.lineTo(400,450);
+      context.lineTo(675,450);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "#fdbd46";
+      context.strokeStyle = "#fdbd46";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(400,350);
+      context.lineTo(300,450);
+      context.lineTo(400,575);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "#009af0";
+      context.strokeStyle = "#009af0";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(600,450);
+      context.lineTo(750,650);
+      context.lineTo(750,450);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "#690ba7";
+      context.strokeStyle = "#690ba7";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(600,450);
+      context.lineTo(490,600);
+      context.lineTo(600,750);
+      context.lineTo(712,600);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "#ff7d4c";
+      context.strokeStyle = "#ff7d4c";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(712,600);
+      context.lineTo(490,900);
+      context.lineTo(930,900);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+
+      context.save();
+      context.fillStyle = "#80c46d";
+      context.strokeStyle = "#80c46d";
+      context.lineWidth = "1";
+      context.beginPath();
+      context.moveTo(930,900);
+      context.lineTo(1100,900);
+      context.lineTo(1000,800);
+      context.lineTo(858,800);
+      context.closePath();
+      context.stroke();
+      context.fill();
+      context.restore();
+    };
+    </script>
+  </body>
+</html>
