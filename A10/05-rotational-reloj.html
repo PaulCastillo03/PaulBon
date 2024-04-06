@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reloj astetik</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @font-face {
+                        font-family:letraastetik;
+                        src: url(OliveVillage-Regular.ttf);
+                    }
+
+                h1{
+                    font-family:letraastetik;
+                    font-weight: 500;
+                    font-size: 56px;
+                    color: rgb(0, 12, 175);
+                }
+                
+        body, html {
+        height: 100%; 
+        margin: 0; 
+        padding: 0;
+        overflow: hidden;
+}
+        body {
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://miro.medium.com/v2/resize:fit:1400/1*pdV-PJx6fQngwLD5XHVnCw.png");
+        background-size: cover;
+        opacity: 0.40;
+        z-index: -1;
+        }
+        canvas { 
+            background-image: url("Reloj.png");
+            background-repeat: no-repeat;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Reloj New Jeans</h1>
+    <canvas id="canvas" width="570" height="570"></canvas>
+    <script src="utils.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          context2 = canvas.getContext('2d'),
+          context3 = canvas.getContext('2d'),
+          context4 = canvas.getContext('2d'),
+          //arrow = new Arrow(),
+          vr = .1; //degrees
+          vr2 = .3;
+          vr3 = .8;
+          var hora = new Image();
+          hora.src = "Hora.png";
+          var minuto = new Image();
+          minuto.src = "Minuto.png"; 
+          var segundo = new Image();
+          segundo.src = "Segundo.png"; 
+          var corazoncito = new Image();
+          corazoncito.src = "Corazon.png";
+          var radianes=0;
+          var radianes2=0;
+          var radianes3=0;
+
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        context.save();
+        context.translate(285, 290);
+        radianes += vr * Math.PI / 180; //to radians
+        context.rotate(radianes); //radians
+        context.drawImage(hora, -hora.width/2,-hora.height/2);
+        context.restore();
+
+        context2.save();
+        context2.translate(285, 290);
+        radianes2 += vr2 * Math.PI / 180; //to radians
+        context2.rotate(radianes2); //radians
+        context2.drawImage(minuto, -minuto.width/2,-minuto.height/2);
+        context2.restore();
+
+        context3.save();
+        context3.translate(285, 290);
+        radianes3 += vr3 * Math.PI / 180; //to radians
+        context3.rotate(radianes3); //radians
+        context3.drawImage(segundo, -segundo.width/2,-segundo.height/2);
+        context3.restore();
+
+        context4.save();
+        context4.translate(285, 290);
+        var newWidth = corazoncito.width / 16;
+        var newHeight = corazoncito.height / 16;
+        context4.drawImage(corazoncito, -newWidth / 2, -newHeight / 2, newWidth, newHeight);
+        context4.restore();
+      }());
+    };
+    </script>
+  </body>
+</html>
